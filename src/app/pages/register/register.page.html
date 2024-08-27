@@ -10,17 +10,19 @@
 <ion-content>
 
   <ion-card>
-    <form>
-      <ion-input type="text" label="RUT" labelPlacement="stacked"></ion-input>
-      <ion-input type="text" label="Nombre" labelPlacement="stacked"></ion-input>
-      <ion-input type="date" label="Fecha nacimiento" labelPlacement="stacked"></ion-input>
-      <ion-select label="Género" labelPlacement="stacked">
+    <form [formGroup]="persona" (ngSubmit)="registrar()">
+      <ion-input formControlName="rut" type="text" label="RUT" labelPlacement="stacked"></ion-input>
+      <ion-input formControlName="nombre" type="text" label="Nombre" labelPlacement="stacked"></ion-input>
+      <ion-input formControlName="fecha_nacimiento" type="date" label="Fecha nacimiento" labelPlacement="stacked"></ion-input>
+      <ion-select formControlName="genero" label="Género" labelPlacement="stacked">
         <ion-select-option>Masculino</ion-select-option>
         <ion-select-option>Femenino</ion-select-option>
         <ion-select-option>Otro</ion-select-option>
       </ion-select>
-      <ion-button size="block" color="warning">Registrar</ion-button>
+      <ion-button type="submit" size="block" color="warning">Registrar</ion-button>
     </form>
+    <!--esto es solo para hacer un test-->
+    <p>{{persona.value.rut}}</p>
   </ion-card>
 
 </ion-content>

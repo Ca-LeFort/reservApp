@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{titulo}}</ion-title>
+    <ion-title>Página de login</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,9 +10,9 @@
     <ion-card-content>
       <ion-input [(ngModel)]="email" type="email" label="Correo" labelPlacement="stacked" fill="outline"></ion-input>
       <br>
-      <ion-input type="password" label="Password" labelPlacement="stacked" fill="outline"></ion-input>
+      <ion-input [(ngModel)]="password" type="password" label="Password" labelPlacement="stacked" fill="outline"></ion-input>
       <br>
-      <ion-button size="block" color="success">Ingresar</ion-button>
+      <ion-button (click)="login()" size="block" color="success">Ingresar</ion-button>
     </ion-card-content>
   </ion-card>
   <p>¿No tienes cuenta? <a routerLink="/register">Regístrate</a></p>

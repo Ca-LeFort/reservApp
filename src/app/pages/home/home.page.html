@@ -1,11 +1,35 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom"> <!-- Reservas -->
+      <ion-tab-button tab="reservas">
+        <ion-icon name="calendar-number-sharp"></ion-icon>
+        <br>
+        Reservas
+      </ion-tab-button>
+
+      <ion-tab-button tab="administrar">
+        <ion-icon name="settings-sharp"></ion-icon>
+        <br>
+        Administrador
+      </ion-tab-button>
+
+      <ion-tab-button tab="profile">
+        <ion-icon name="person-sharp"></ion-icon>
+        <br>
+        Perfil
+      </ion-tab-button>
+    </ion-tab-bar>
+    
+  </ion-tabs>
+
 </ion-content>

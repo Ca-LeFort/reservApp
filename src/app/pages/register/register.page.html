@@ -19,11 +19,18 @@
         <ion-select-option>Femenino</ion-select-option>
         <ion-select-option>Otro</ion-select-option>
       </ion-select>
+      <ion-label>¿Tiene equipo?</ion-label>
+      <br>
+      <ion-radio-group formControlName="tiene_equipo">
+        <ion-radio value="si">Si</ion-radio>
+        <ion-radio value="no">No</ion-radio>
+      </ion-radio-group>
+      <ion-input *ngIf="persona.controls.tiene_equipo.value=='si'" formControlName="nombre_equipo" type="text" label="Nombre del equipo" labelPlacement="stacked"></ion-input>
       <ion-button id="present-alert" [disabled]="habilitar_boton()" type="submit" size="block" color="warning">Registrar</ion-button>
       <ion-alert trigger="present-alert" header="alert!" [buttons]="alertButtons" (didDismiss)="setResult($event)"></ion-alert>
     </form>
     <!--esto es solo para hacer un test-->
-    <p>{{persona.value.rut}}</p>
+    <p>{{persona.value}}</p>
   </ion-card>
 
 </ion-content>

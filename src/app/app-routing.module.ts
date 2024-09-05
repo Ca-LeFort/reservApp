@@ -19,7 +19,14 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
-
+  {
+    path: 'recovery',
+    loadChildren: () => import('./pages/recovery/recovery.module').then( m => m.RecoveryPageModule)
+  },
+  { // Error 404: El ** se refiere al else de las páginas
+    path: '**',
+    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
+  },
 ];
 
 @NgModule({

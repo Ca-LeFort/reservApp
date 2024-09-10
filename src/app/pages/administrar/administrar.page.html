@@ -20,10 +20,27 @@
                 label="Nombre del equipo" labelPlacement="stacked"></ion-input>
             <ion-button [disabled]="persona.invalid" type="submit" size="block"
                 color="warning">Registrar</ion-button>
+            <ion-button (click)="modificar()" color="primary" size="block">MODIFICAR</ion-button>
+            <ion-button type="reset" color="secondary" size="block">LIMPIAR</ion-button>
         </form>
     </ion-card>
 
     <ion-list *ngFor="let usuario of usuarios">
-        <ion-item>{{usuario.rut}} - {{usuario.nombre}}</ion-item>
+        <ion-item-sliding>
+            <ion-item-options side="start">
+                <ion-item-option (click)="buscar(usuario.rut)" color="warning">BUSCAR</ion-item-option>
+            </ion-item-options>
+
+            <ion-item>{{usuario.rut}} - {{usuario.nombre}}</ion-item>
+
+            <ion-item-options side="end">
+                <ion-item-option id="confirmarEliminar" (click)="eliminar(usuario.rut)" color="danger">ELIMINAR</ion-item-option>
+            </ion-item-options>
+            <ion-alert
+                trigger="confirmarEliminar"
+                header="¿Estás seguro de Eliminar el usuario?"
+                [buttons]="botonEliminar"
+            ></ion-alert>
+        </ion-item-sliding>
     </ion-list>
 </ion-content>

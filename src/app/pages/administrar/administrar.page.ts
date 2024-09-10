@@ -36,4 +36,44 @@ export class AdministrarPage implements OnInit {
     }
   }
 
+  public buscar(rut_buscar:string){
+    this.persona.setValue(this.usuarioService.getUsuario(rut_buscar));
+  }
+
+  public modificar(){
+    var rut_buscar: string = this.persona.controls.rut.value || "";
+    if(this.usuarioService.updateUsuario(rut_buscar, this.persona.value)){
+      alert("USUARIO MODIFICADO CON ÉXITO");
+    } else {
+      alert("ERROR! USUARIO NO MODIFICADO!")
+    }
+  }
+
+  // ELIMINAR
+  public eliminar(rut_eliminar:string){
+    //console.log(rut_eliminar);
+    if (this.usuarioService.deleteUsuario(rut_eliminar)){
+      alert("USUARIO ELIMINADO CON ÉXITO!!");
+    } else {
+      alert("ERROR! USUARIO NO ELIMINADO!");
+    }
+  }
+
+  public botonEliminar = [
+    {
+      text: 'Cancelar',
+      role: 'cancel',
+      handler: () => {
+        console.log('Cancelado por el Usuario');
+      },
+    },
+    {
+      text: 'Sí',
+      role: 'confirm',
+      handler: () => {
+        console.log('Alert confirmed');
+      },
+    },
+  ];
+
 }
